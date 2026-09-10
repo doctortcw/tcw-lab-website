@@ -57,11 +57,10 @@
     </div>
     <form class="form-shell application-form" id="career-application" aria-labelledby="apply-fields" action="https://formsubmit.co/doctortcw@gmail.com" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="_subject" id="application-subject" value="TCW Lab Application">
-      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_template" value="box">
       <input type="hidden" name="_next" value="https://tcwlab.org/careers/?submitted=1">
       <input type="hidden" name="_url" value="https://tcwlab.org/careers/">
       <input type="hidden" name="_autoresponse" value="Thank you for your interest in the TCW Lab. Your application materials have been received.">
-      <input type="hidden" name="Application summary" id="application-summary-field">
       <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="honeypot" aria-hidden="true">
       <h2 id="apply-fields">Application Information</h2>
       <div class="field-grid">
@@ -72,51 +71,55 @@
       </div>
       <fieldset>
         <legend>Research track <span class="required-marker">*</span></legend>
-        <label><input type="checkbox" name="Research track" value="Wet lab" data-track="wet"> Wet lab</label>
-        <label><input type="checkbox" name="Research track" value="Dry lab" data-track="dry"> Dry lab</label>
+        <label><input type="checkbox" value="Wet lab" data-track="wet"> Wet lab</label>
+        <label><input type="checkbox" value="Dry lab" data-track="dry"> Dry lab</label>
         <label><input type="checkbox" data-track-both> Both</label>
       </fieldset>
       <fieldset data-skill-section="wet" hidden>
         <legend>Wet lab skill set <span class="required-marker">*</span></legend>
         <div class="checkbox-grid skill-grid" data-skill-group="wet">
-          <label><input type="checkbox" name="Wet lab skills" value="Human iPSC maintenance"> Human iPSC maintenance</label>
-          <label><input type="checkbox" name="Wet lab skills" value="CRISPRi screen"> CRISPRi screen</label>
-          <label><input type="checkbox" name="Wet lab skills" value="Any CNS cell type differentiation from iPSC"> Any CNS cell type differentiation from iPSC</label>
-          <label><input type="checkbox" name="Wet lab skills" value="Human iPSC reprogramming"> Human iPSC reprogramming</label>
-          <label><input type="checkbox" name="Wet lab skills" value="Western blotting"> Western blotting</label>
-          <label><input type="checkbox" name="Wet lab skills" value="Confocal microscopy"> Confocal microscopy</label>
-          <label><input type="checkbox" name="Wet lab skills" value="Molecular cloning"> Molecular cloning</label>
-          <label><input type="checkbox" name="Wet lab skills" value="DNA/RNA purification"> DNA/RNA purification</label>
-          <label><input type="checkbox" name="Wet lab skills" value="Flow cytometry / FACS"> Flow cytometry / FACS</label>
-          <label><input type="checkbox" name="Wet lab skills" value="Human brain cell type preparation"> Human brain cell type preparation</label>
-          <label><input type="checkbox" name="Wet lab skills" value="PCR / qRT-PCR"> PCR / qRT-PCR</label>
-          <label><input type="checkbox" name="Wet lab skills" value="Single cell/single nucleus library preparation"> Single cell/single nucleus library preparation</label>
-          <label><input type="checkbox" name="Wet lab skills" value="Animal handling"> Animal handling</label>
-          <label><input type="checkbox" name="Wet lab skills" value="Electrophysiology"> Electrophysiology</label>
-          <label><input type="checkbox" name="Wet lab skills" value="Other wet lab skills"> Other</label>
+          <label><input type="checkbox" value="Human iPSC maintenance"> Human iPSC maintenance</label>
+          <label><input type="checkbox" value="CRISPRi screen"> CRISPRi screen</label>
+          <label><input type="checkbox" value="Any CNS cell type differentiation from iPSC"> Any CNS cell type differentiation from iPSC</label>
+          <label><input type="checkbox" value="Human iPSC reprogramming"> Human iPSC reprogramming</label>
+          <label><input type="checkbox" value="Western blotting"> Western blotting</label>
+          <label><input type="checkbox" value="Confocal microscopy"> Confocal microscopy</label>
+          <label><input type="checkbox" value="Molecular cloning"> Molecular cloning</label>
+          <label><input type="checkbox" value="DNA/RNA purification"> DNA/RNA purification</label>
+          <label><input type="checkbox" value="Flow cytometry / FACS"> Flow cytometry / FACS</label>
+          <label><input type="checkbox" value="Human brain cell type preparation"> Human brain cell type preparation</label>
+          <label><input type="checkbox" value="PCR / qRT-PCR"> PCR / qRT-PCR</label>
+          <label><input type="checkbox" value="Single cell/single nucleus library preparation"> Single cell/single nucleus library preparation</label>
+          <label><input type="checkbox" value="Animal handling"> Animal handling</label>
+          <label><input type="checkbox" value="Electrophysiology"> Electrophysiology</label>
+          <label><input type="checkbox" value="Other wet lab skills"> Other</label>
         </div>
       </fieldset>
       <fieldset data-skill-section="dry" hidden>
         <legend>Dry lab skill set <span class="required-marker">*</span></legend>
         <div class="checkbox-grid skill-grid" data-skill-group="dry">
-          <label><input type="checkbox" name="Dry lab skills" value="R programming"> R programming</label>
-          <label><input type="checkbox" name="Dry lab skills" value="Python programming"> Python programming</label>
-          <label><input type="checkbox" name="Dry lab skills" value="Single-cell / single-nucleus RNA-seq analysis"> Single-cell / single-nucleus RNA-seq analysis</label>
-          <label><input type="checkbox" name="Dry lab skills" value="Transcriptomics and differential expression"> Transcriptomics and differential expression</label>
-          <label><input type="checkbox" name="Dry lab skills" value="GWAS, QTL, and xQTL analysis"> GWAS, QTL, and xQTL analysis</label>
-          <label><input type="checkbox" name="Dry lab skills" value="Multi-omics integration"> Multi-omics integration</label>
-          <label><input type="checkbox" name="Dry lab skills" value="Epigenomics / DNA methylation analysis"> Epigenomics / DNA methylation analysis</label>
-          <label><input type="checkbox" name="Dry lab skills" value="Proteomics or metabolomics analysis"> Proteomics or metabolomics analysis</label>
-          <label><input type="checkbox" name="Dry lab skills" value="Machine learning for genomics"> Machine learning for genomics</label>
-          <label><input type="checkbox" name="Dry lab skills" value="Reproducible pipelines and Git/GitHub"> Reproducible pipelines and Git/GitHub</label>
-          <label><input type="checkbox" name="Dry lab skills" value="High-performance computing"> High-performance computing</label>
-          <label><input type="checkbox" name="Dry lab skills" value="Data visualization and scientific reporting"> Data visualization and scientific reporting</label>
-          <label><input type="checkbox" name="Dry lab skills" value="Other dry lab skills"> Other</label>
+          <label><input type="checkbox" value="R programming"> R programming</label>
+          <label><input type="checkbox" value="Python programming"> Python programming</label>
+          <label><input type="checkbox" value="Single-cell / single-nucleus RNA-seq analysis"> Single-cell / single-nucleus RNA-seq analysis</label>
+          <label><input type="checkbox" value="Transcriptomics and differential expression"> Transcriptomics and differential expression</label>
+          <label><input type="checkbox" value="GWAS, QTL, and xQTL analysis"> GWAS, QTL, and xQTL analysis</label>
+          <label><input type="checkbox" value="Multi-omics integration"> Multi-omics integration</label>
+          <label><input type="checkbox" value="Epigenomics / DNA methylation analysis"> Epigenomics / DNA methylation analysis</label>
+          <label><input type="checkbox" value="Proteomics or metabolomics analysis"> Proteomics or metabolomics analysis</label>
+          <label><input type="checkbox" value="Machine learning for genomics"> Machine learning for genomics</label>
+          <label><input type="checkbox" value="Reproducible pipelines and Git/GitHub"> Reproducible pipelines and Git/GitHub</label>
+          <label><input type="checkbox" value="High-performance computing"> High-performance computing</label>
+          <label><input type="checkbox" value="Data visualization and scientific reporting"> Data visualization and scientific reporting</label>
+          <label><input type="checkbox" value="Other dry lab skills"> Other</label>
         </div>
       </fieldset>
+      <input type="hidden" name="Research track" id="application-track-field">
+      <input type="hidden" name="Wet lab skills" id="application-wet-skills-field">
+      <input type="hidden" name="Dry lab skills" id="application-dry-skills-field">
       <label>Other skills or details<textarea name="Other skills or details" rows="4" placeholder="If you selected Other, please describe it here."></textarea></label>
       <label>Publication links <span class="optional">(optional)</span><textarea name="Publication links" rows="4" placeholder="Links to major publications, Google Scholar, ORCID, portfolio, or GitHub"></textarea></label>
       <label>Comments <span class="required-marker">*</span><textarea name="Comments" rows="6" required></textarea></label>
+      <input type="hidden" name="Attachment checklist" id="application-attachment-field">
       <div class="field-grid">
         <label>Cover letter <span class="required-marker">*</span><input type="file" name="Cover letter" accept=".pdf,.doc,.docx" required></label>
         <label>CV <span class="required-marker">*</span><input type="file" name="CV" accept=".pdf,.doc,.docx" required></label>
@@ -163,10 +166,10 @@
         setSection(drySection, dry.checked);
       }
 
-      function listValues(data, name) {
-        var values = data.getAll(name).filter(function (value) {
-          return String(value || "").trim();
-        });
+      function checkedValues(selector) {
+        var values = Array.prototype.map.call(form.querySelectorAll(selector + ":checked"), function (box) {
+          return clean(box.value);
+        }).filter(Boolean);
         return values.length ? values.join(", ") : "None selected";
       }
 
@@ -198,43 +201,13 @@
         return String(value || "").trim();
       }
 
-      function buildEmailBody(data) {
+      function attachmentChecklist() {
         return [
-          "TCW Lab Application Packet",
-          "Please review the applicant information below. The required files were uploaded through the TCW Lab application form.",
-          "",
-          "Applicant Information",
-          "---------------------",
-          "Name: " + clean(data.get("Applicant name")),
-          "Email: " + clean(data.get("email")),
-          "Current affiliation: " + clean(data.get("Current affiliation")),
-          "Position of interest: " + clean(data.get("Position of interest")),
-          "Research track: " + listValues(data, "Research track"),
-          "",
-          "Skill Set",
-          "---------",
-          "Wet lab skills: " + listValues(data, "Wet lab skills"),
-          "Dry lab skills: " + listValues(data, "Dry lab skills"),
-          "",
-          "Other skills or details:",
-          clean(data.get("Other skills or details")) || "None provided",
-          "",
-          "Publication links:",
-          clean(data.get("Publication links")) || "None provided",
-          "",
-          "Applicant Comments",
-          "------------------",
-          clean(data.get("Comments")),
-          "",
-          "Attachment Checklist",
-          "--------------------",
           "Cover letter: " + fileNames("Cover letter"),
           "CV: " + fileNames("CV"),
           "Reference contact list: " + fileNames("Reference contact list"),
-          "Combined attachment size: " + formatFileSize(attachmentSize()),
-          "",
-          "The required files were uploaded through the TCW Lab application form."
-        ].join("\\n");
+          "Combined attachment size: " + formatFileSize(attachmentSize())
+        ].join("; ");
       }
 
       both.addEventListener("change", function () {
@@ -256,16 +229,18 @@
           event.preventDefault();
           return;
         }
-        var tracks = data.getAll("Research track");
-        var wantsWet = tracks.indexOf("Wet lab") !== -1;
-        var wantsDry = tracks.indexOf("Dry lab") !== -1;
-        var hasWetSkill = data.getAll("Wet lab skills").length > 0;
-        var hasDrySkill = data.getAll("Dry lab skills").length > 0;
-        var selectedOther = data.getAll("Wet lab skills").concat(data.getAll("Dry lab skills")).some(function (value) {
+        var tracks = checkedValues("[data-track]");
+        var wetSkills = checkedValues("[data-skill-group='wet'] input[type='checkbox']");
+        var drySkills = checkedValues("[data-skill-group='dry'] input[type='checkbox']");
+        var wantsWet = wet.checked;
+        var wantsDry = dry.checked;
+        var hasWetSkill = wetSkills !== "None selected";
+        var hasDrySkill = drySkills !== "None selected";
+        var selectedOther = wetSkills.split(", ").concat(drySkills.split(", ")).some(function (value) {
           return value.toLowerCase().indexOf("other") !== -1;
         });
 
-        if (!tracks.length) {
+        if (!wantsWet && !wantsDry) {
           event.preventDefault();
           alert("Please select a research track.");
           return;
@@ -296,11 +271,16 @@
         }
 
         var subject = "TCW Lab Application - " + clean(data.get("Applicant name") || "Applicant") + " - " + clean(data.get("Position of interest") || "Position not specified");
-        var body = buildEmailBody(data);
-        var summaryField = document.querySelector("#application-summary-field");
         var subjectField = document.querySelector("#application-subject");
-        if (summaryField) summaryField.value = body;
+        var trackField = document.querySelector("#application-track-field");
+        var wetSkillsField = document.querySelector("#application-wet-skills-field");
+        var drySkillsField = document.querySelector("#application-dry-skills-field");
+        var attachmentField = document.querySelector("#application-attachment-field");
         if (subjectField) subjectField.value = subject;
+        if (trackField) trackField.value = tracks;
+        if (wetSkillsField) wetSkillsField.value = wetSkills;
+        if (drySkillsField) drySkillsField.value = drySkills;
+        if (attachmentField) attachmentField.value = attachmentChecklist();
       });
 
       updateSkillSections();
