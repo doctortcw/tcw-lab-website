@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" sizes="512x512" href="/assets/icons/tcw-logo-20260731p.png?v=20260731p">
   <title>Careers | TCW Lab</title>
   <meta name="description" content="Career opportunities for scientists, trainees, and collaborators interested in Alzheimer's disease genetics, iPSC systems, and computational biology.">
-  <link rel="stylesheet" href="../assets/css/styles.css?v=20260813f">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=20260910b">
   <script src="../assets/js/site.js?v=20260813f" defer></script>
 </head>
 <body class="page-careers">
@@ -48,20 +48,16 @@
     <section class="notice-panel">
       <h2>Talent Acquisition</h2>
       <p>We welcome scientists, trainees, and collaborators who want to work at the interface of Alzheimer's disease genetics, human iPSC models, CRISPRi screens, and multi-omics computational biology.</p>
-      <p>Please complete the required fields and attach your cover letter, CV, and reference contact lists. Major publication links are welcome but optional.</p>
+      <p>Please complete the required fields, then open a prepared email draft to submit your application from your own email account. Major publication links are welcome but optional.</p>
     </section>
     <div class="form-success" id="application-success" hidden>
-      <h2>Application sent</h2>
-      <p>Thank you. Your application has been sent to the TCW Lab inbox with your selected attachments.</p>
-      <p class="form-note">If you do not receive a confirmation or need to update your materials, email <a href="mailto:doctortcw@gmail.com">doctortcw@gmail.com</a>.</p>
+      <h2>Email draft opened</h2>
+      <p>Your email app should open with a prepared TCW Lab application message addressed to Dr. TCW and copied to Wendy.</p>
+      <p class="form-note">Your application is not submitted until you attach your cover letter, CV, and reference contact list, then send the email from your email app.</p>
+      <label>Email text backup<textarea id="application-email-preview" rows="12" readonly></textarea></label>
+      <p class="form-note">If the draft does not open, email <a href="mailto:doctortcw@gmail.com">doctortcw@gmail.com</a>, copy <a href="mailto:wendybui@edu.bu">wendybui@edu.bu</a>, paste the text above, and attach the required files.</p>
     </div>
-    <form class="form-shell application-form" id="career-application" aria-labelledby="apply-fields" action="https://formsubmit.co/doctortcw@gmail.com" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="_subject" id="application-subject" value="TCW Lab Application">
-      <input type="hidden" name="_template" value="box">
-      <input type="hidden" name="_next" value="https://tcwlab.org/careers/?submitted=1">
-      <input type="hidden" name="_url" value="https://tcwlab.org/careers/">
-      <input type="hidden" name="_autoresponse" value="Thank you for your interest in the TCW Lab. Your application materials have been received.">
-      <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="honeypot" aria-hidden="true">
+    <form class="form-shell application-form" id="career-application" aria-labelledby="apply-fields" novalidate>
       <h2 id="apply-fields">Application Information</h2>
       <div class="field-grid">
         <label>Name <span class="required-marker">*</span><input type="text" name="Applicant name" autocomplete="name" required></label>
@@ -113,20 +109,16 @@
           <label><input type="checkbox" value="Other dry lab skills"> Other</label>
         </div>
       </fieldset>
-      <input type="hidden" name="Research track" id="application-track-field">
-      <input type="hidden" name="Wet lab skills" id="application-wet-skills-field">
-      <input type="hidden" name="Dry lab skills" id="application-dry-skills-field">
       <label>Other skills or details<textarea name="Other skills or details" rows="4" placeholder="If you selected Other, please describe it here."></textarea></label>
       <label>Publication links <span class="optional">(optional)</span><textarea name="Publication links" rows="4" placeholder="Links to major publications, Google Scholar, ORCID, portfolio, or GitHub"></textarea></label>
       <label>Comments <span class="required-marker">*</span><textarea name="Comments" rows="6" required></textarea></label>
-      <input type="hidden" name="Attachment checklist" id="application-attachment-field">
       <div class="field-grid">
         <label>Cover letter <span class="required-marker">*</span><input type="file" name="Cover letter" accept=".pdf,.doc,.docx" required></label>
         <label>CV <span class="required-marker">*</span><input type="file" name="CV" accept=".pdf,.doc,.docx" required></label>
         <label>Reference contact lists <span class="required-marker">*</span><input type="file" name="Reference contact list" accept=".pdf,.doc,.docx" required></label>
       </div>
-      <button type="submit">Submit application</button>
-      <p class="form-note"><span class="required-marker">*</span> Required field. This form sends the application directly to doctortcw@gmail.com. Attachments must be PDF, DOC, or DOCX files with a combined size under 10 MB.</p>
+      <button type="submit" id="application-submit">Open email draft</button>
+      <p class="form-note"><span class="required-marker">*</span> Required field. This form opens an email draft to doctortcw@gmail.com with Wendy copied. Please attach the selected PDF, DOC, or DOCX files before sending. Combined file size should stay under 10 MB.</p>
     </form>
         </article>
         
@@ -151,6 +143,7 @@
       var dry = form.querySelector("[data-track='dry']");
       var wetSection = form.querySelector("[data-skill-section='wet']");
       var drySection = form.querySelector("[data-skill-section='dry']");
+      var submitButton = form.querySelector("#application-submit");
 
       function setSection(section, visible) {
         section.hidden = !visible;
@@ -201,13 +194,44 @@
         return String(value || "").trim();
       }
 
-      function attachmentChecklist() {
+      function buildEmailBody(data, tracks, wetSkills, drySkills) {
         return [
+          "Dear Dr. TCW,",
+          "",
+          "Please find my TCW Lab application information below. I will attach my cover letter, CV, and reference contact list to this email.",
+          "",
+          "Applicant Information",
+          "---------------------",
+          "Name: " + clean(data.get("Applicant name")),
+          "Email: " + clean(data.get("email")),
+          "Current affiliation: " + clean(data.get("Current affiliation")),
+          "Position of interest: " + clean(data.get("Position of interest")),
+          "Research track: " + tracks,
+          "",
+          "Skill Set",
+          "---------",
+          "Wet lab skills: " + wetSkills,
+          "Dry lab skills: " + drySkills,
+          "",
+          "Other skills or details:",
+          clean(data.get("Other skills or details")) || "None provided",
+          "",
+          "Publication links:",
+          clean(data.get("Publication links")) || "None provided",
+          "",
+          "Applicant comments:",
+          clean(data.get("Comments")) || "None provided",
+          "",
+          "Attachment Checklist",
+          "--------------------",
           "Cover letter: " + fileNames("Cover letter"),
           "CV: " + fileNames("CV"),
           "Reference contact list: " + fileNames("Reference contact list"),
-          "Combined attachment size: " + formatFileSize(attachmentSize())
-        ].join("; ");
+          "Combined attachment size: " + formatFileSize(attachmentSize()),
+          "",
+          "Best,",
+          clean(data.get("Applicant name"))
+        ].join("\n");
       }
 
       both.addEventListener("change", function () {
@@ -224,11 +248,14 @@
       });
 
       form.addEventListener("submit", function (event) {
-        var data = new FormData(form);
-        if (clean(data.get("_honey"))) {
-          event.preventDefault();
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
           return;
         }
+
+        var data = new FormData(form);
         var tracks = checkedValues("[data-track]");
         var wetSkills = checkedValues("[data-skill-group='wet'] input[type='checkbox']");
         var drySkills = checkedValues("[data-skill-group='dry'] input[type='checkbox']");
@@ -241,56 +268,50 @@
         });
 
         if (!wantsWet && !wantsDry) {
-          event.preventDefault();
           alert("Please select a research track.");
           return;
         }
 
         if (wantsWet && !hasWetSkill) {
-          event.preventDefault();
           alert("Please select at least one wet lab skill, or choose Other.");
           return;
         }
 
         if (wantsDry && !hasDrySkill) {
-          event.preventDefault();
           alert("Please select at least one dry lab skill, or choose Other.");
           return;
         }
 
         if (selectedOther && !(data.get("Other skills or details") || "").trim()) {
-          event.preventDefault();
           alert("Please describe your Other skill in the Other skills or details field.");
           return;
         }
 
         if (attachmentSize() > 10 * 1024 * 1024) {
-          event.preventDefault();
           alert("Please keep the cover letter, CV, and reference contact list under 10 MB combined.");
           return;
         }
 
         var subject = "TCW Lab Application - " + clean(data.get("Applicant name") || "Applicant") + " - " + clean(data.get("Position of interest") || "Position not specified");
-        var subjectField = document.querySelector("#application-subject");
-        var trackField = document.querySelector("#application-track-field");
-        var wetSkillsField = document.querySelector("#application-wet-skills-field");
-        var drySkillsField = document.querySelector("#application-dry-skills-field");
-        var attachmentField = document.querySelector("#application-attachment-field");
-        if (subjectField) subjectField.value = subject;
-        if (trackField) trackField.value = tracks;
-        if (wetSkillsField) wetSkillsField.value = wetSkills;
-        if (drySkillsField) drySkillsField.value = drySkills;
-        if (attachmentField) attachmentField.value = attachmentChecklist();
+        var body = buildEmailBody(data, tracks, wetSkills, drySkills);
+        var mailto = "mailto:doctortcw@gmail.com"
+          + "?cc=" + encodeURIComponent("wendybui@edu.bu")
+          + "&subject=" + encodeURIComponent(subject)
+          + "&body=" + encodeURIComponent(body);
+        var success = document.querySelector("#application-success");
+        var preview = document.querySelector("#application-email-preview");
+        if (preview) preview.value = body;
+        if (success) {
+          success.hidden = false;
+          success.scrollIntoView({ block: "start", behavior: "smooth" });
+        }
+        if (submitButton) {
+          submitButton.textContent = "Email draft opened";
+        }
+        window.location.href = mailto;
       });
 
       updateSkillSections();
-
-      var success = document.querySelector("#application-success");
-      var params = new URLSearchParams(window.location.search);
-      if (success && params.get("submitted") === "1") {
-        success.hidden = false;
-        success.scrollIntoView({ block: "start" });
-      }
     })();
   </script>
 </body>
