@@ -299,7 +299,8 @@ function initGlialMotion() {
     if (hasPage("page-careers")) return "stem";
     if (hasPage("page-resources")) return "molecule";
     if (hasPage("page-contact")) return "signal";
-    if (hasPage("page-member")) return "mixed";
+    if (hasPage("page-home")) return "mixed";
+    if (hasPage("page-member")) return "glial";
     return "glial";
   }
 

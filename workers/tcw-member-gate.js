@@ -149,7 +149,7 @@ function loginPage(url, error = "") {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" sizes="512x512" href="/assets/icons/tcw-logo-20260731p.png?v=20260731p">
   <link rel="stylesheet" href="/assets/css/styles.css?v=20260813f">
-  <script src="/assets/js/site.js?v=20260813f" defer></script>
+  <script src="/assets/js/site.js?v=20260910a" defer></script>
   <title>Member Access | TCW Lab</title>
   <style>
     body.page-member-gate {
