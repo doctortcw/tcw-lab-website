@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" sizes="512x512" href="/assets/icons/tcw-logo-20260731p.png?v=20260731p">
   <title>Members | TCW Lab</title>
   <meta name="description" content="Member-only resource hub for the TCW Laboratory: research database, GitHub repositories, protocols, datasets, and lab tools.">
-  <link rel="stylesheet" href="../assets/css/styles.css?v=20260813f">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=20260910d">
   <script src="../assets/js/site.js?v=20260910a" defer></script>
   <style>
     /* ---------- Member portal ---------- */
@@ -264,7 +264,8 @@
     /* ===== Member dashboard view ===== */
     .member-band {
       position: relative;
-      overflow: hidden;
+      overflow: visible;
+      isolation: isolate;
       padding: 116px 24px 38px;
     }
     .member-band::before {
@@ -276,6 +277,11 @@
       background: radial-gradient(circle, rgba(162, 248, 246, 0.22), transparent 66%);
       filter: blur(20px);
       pointer-events: none;
+    }
+    .member-band .glial-field {
+      inset: 0 0 -170px;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 62%, rgba(0, 0, 0, 0.48) 82%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 62%, rgba(0, 0, 0, 0.48) 82%, transparent 100%);
     }
     .member-band .portal-shell { position: relative; z-index: 1; }
     .member-head {
@@ -333,7 +339,11 @@
     }
     .signout-btn:hover { background: var(--teal-soft); }
 
-    .res-section { padding: 18px 0 90px; }
+    .res-section {
+      position: relative;
+      z-index: 2;
+      padding: 18px 0 90px;
+    }
     .res-section .section-label { margin-bottom: 18px; }
 
     .res-grid {
@@ -546,7 +556,7 @@
         <p class="section-label" data-audience="shared">Shared Lab Resources</p>
         <div class="res-grid" data-audience="shared">
 
-          <a class="res-card" href="https://s3.amazonaws.com/buaws-som-pharmatcw.s3/index.html" target="_blank" rel="noopener">
+          <a class="res-card" href="https://s3.amazonaws.com/buaws-som-pharmatcw.s3/index.htm" target="_blank" rel="noopener">
             <span class="res-badge">DB</span>
             <h3>Research Database</h3>
             <p>Member-only database view for lab resources and research materials.</p>
@@ -554,12 +564,12 @@
             <span class="res-foot">Open database <span class="arrow">→</span></span>
           </a>
 
-          <a class="res-card" href="https://scc-ondemand2.bu.edu/pun/sys/dashboard/files/fs/projectnb/tcwlab" target="_blank" rel="noopener">
+          <a class="res-card" href="https://scc-ondemand2.bu.edu/pun/sys/dashboard/" target="_blank" rel="noopener">
             <span class="res-badge">SCC</span>
             <h3>SCC Project Space</h3>
             <p>Lab project files on BU's Shared Computing Cluster, browsable through SCC OnDemand.</p>
-            <span class="res-tag path">projectnb/tcwlab</span>
-            <span class="res-foot">Open on SCC <span class="arrow">→</span></span>
+            <span class="res-tag path">SCC OnDemand</span>
+            <span class="res-foot">Open SCC dashboard <span class="arrow">→</span></span>
           </a>
 
         </div>
@@ -567,7 +577,14 @@
         <p class="section-label" data-audience="wet">Wet Lab Resources</p>
         <div class="res-grid" data-audience="wet">
 
-          <a class="res-card" href="https://drive.google.com/drive/folders/1NbZYVpMvNWvI6jnT5c7QVyxfEEYGNx24?usp=share_link" target="_blank" rel="noopener">
+          <a class="res-card" href="https://drive.google.com/drive/folders/1Gm2X2bRcNVYTa5PnggrmxBKFvD_g7C5P?usp=drive_link" target="_blank" rel="noopener">
+            <span class="res-badge">wet</span>
+            <h3>Wet-lab Practice</h3>
+            <p>Shared wet-lab practice materials and training documents on Google Drive.</p>
+            <span class="res-foot">Open Drive folder <span class="arrow">→</span></span>
+          </a>
+
+          <a class="res-card" href="https://drive.google.com/drive/folders/1Gm2X2bRcNVYTa5PnggrmxBKFvD_g7C5P?usp=drive_link" target="_blank" rel="noopener">
             <span class="res-badge">drv</span>
             <h3>Protocols</h3>
             <p>Differentiation protocols, SOPs, and shared working documents on Google Drive.</p>
@@ -594,11 +611,11 @@
             <span class="res-foot">Open organization <span class="arrow">→</span></span>
           </a>
 
-          <a class="res-card" href="https://scc-ondemand2.bu.edu/pun/sys/dashboard/files/fs/projectnb/tcwlab" target="_blank" rel="noopener">
+          <a class="res-card" href="https://scc-ondemand2.bu.edu/pun/sys/dashboard/" target="_blank" rel="noopener">
             <span class="res-badge">HPC</span>
             <h3>Computing Workspace</h3>
             <p>Shared computing access for omics analyses, pipelines, and intermediate project files.</p>
-            <span class="res-foot">Open workspace <span class="arrow">→</span></span>
+            <span class="res-foot">Open SCC dashboard <span class="arrow">→</span></span>
           </a>
 
         </div>
