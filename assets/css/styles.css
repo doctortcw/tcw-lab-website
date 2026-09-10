@@ -1234,6 +1234,62 @@ input[type="checkbox"] {
   padding: 12px 14px;
 }
 
+.page-application-thanks .hero {
+  min-height: 300px;
+  align-items: end;
+  padding-bottom: 34px;
+}
+
+.page-application-thanks .hero::before {
+  height: 46%;
+}
+
+.page-application-thanks .glial-field {
+  inset: 0;
+  opacity: 0.74;
+}
+
+.page-application-thanks .hero h1 {
+  max-width: none;
+  font-size: clamp(58px, 8.2vw, 112px);
+  white-space: nowrap;
+}
+
+.page-application-thanks .hero-subtitle {
+  max-width: 1180px;
+  margin-top: 16px;
+  font-size: clamp(18px, 1.8vw, 24px);
+  line-height: 1.25;
+}
+
+.page-application-thanks .wrapper {
+  padding: 18px 0 38px;
+}
+
+.page-application-thanks .page-content {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.page-application-thanks .notice-panel {
+  display: grid;
+  gap: 12px;
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.page-application-thanks .notice-panel h2 {
+  max-width: none;
+  margin-bottom: 0;
+  font-size: clamp(34px, 4.4vw, 62px);
+  line-height: 0.98;
+}
+
+.page-application-thanks .notice-panel p {
+  margin: 0;
+}
+
 .skill-grid label {
   align-items: flex-start;
   line-height: 1.35;
@@ -1949,6 +2005,20 @@ html[data-theme="dark"] .research-project-card img {
 
   .checkbox-grid {
     grid-template-columns: 1fr;
+  }
+
+  .page-application-thanks .hero {
+    min-height: 300px;
+    padding-bottom: 28px;
+  }
+
+  .page-application-thanks .hero h1 {
+    font-size: clamp(54px, 18vw, 86px);
+    white-space: normal;
+  }
+
+  .page-application-thanks .hero-subtitle {
+    max-width: 100%;
   }
 
   .site-footer {
